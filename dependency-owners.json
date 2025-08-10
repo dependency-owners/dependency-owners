@@ -1,0 +1,10 @@
+{
+  "kirkeaton": [
+    "@kirkeaton/prettier-config",
+    "@kirkeaton/tsconfig",
+    "@stricli/core",
+    "@types/node",
+    "prettier",
+    "typescript"
+  ]
+}
