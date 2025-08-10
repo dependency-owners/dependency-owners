@@ -1,0 +1,44 @@
+name: CI
+permissions:
+  contents: read
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+jobs:
+  build:
+    name: Build and test (Node.js ${{ matrix.node-version }})
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        node-version:
+          - 24
+          - 22
+          - 20
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+      - name: Setup pnpm
+        uses: pnpm/action-setup@a7487c7e89a18df4991f7f222e4898a00d66ddda # v4.1.0
+      - name: Setup Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4.4.0
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: 'pnpm'
+      - name: Install dependencies
+        run: pnpm install
+      - if: ${{ matrix.node-version == 24 }}
+        name: Check formatting
+        run: pnpm lint
+      - if: ${{ matrix.node-version == 24 }}
+        name: Check types
+        run: pnpm typecheck
+      - name: Build
+        run: pnpm build
+      - name: Run tests
+        run: pnpm test
+      - if: ${{ matrix.node-version == 24 }}
+        name: Check for packaging errors
+        uses: kirkeaton/action-publint@cbe13157cb753a26a058ea0de896317abf78cd63 # v1.0.12

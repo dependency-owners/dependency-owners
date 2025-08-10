@@ -1,0 +1,14 @@
+{
+  "kirkeaton": [
+    "@kirkeaton/prettier-config",
+    "@kirkeaton/semantic-release-config",
+    "@kirkeaton/tsconfig",
+    "@stricli/core",
+    "@types/node",
+    "fs-fixture",
+    "prettier",
+    "semantic-release",
+    "tsx",
+    "typescript"
+  ]
+}

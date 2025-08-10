@@ -1,0 +1,59 @@
+{
+  "name": "dependency-owners",
+  "version": "0.0.0-development",
+  "description": "Determine ownership of dependencies in a project",
+  "author": "Kirk Eaton <contact@kirkeaton.ca>",
+  "bin": "./dist/cli.js",
+  "dependencies": {
+    "@stricli/core": "1.2.0"
+  },
+  "devDependencies": {
+    "@kirkeaton/prettier-config": "1.0.5",
+    "@kirkeaton/semantic-release-config": "1.0.4",
+    "@kirkeaton/tsconfig": "1.0.3",
+    "@types/node": "24.2.1",
+    "fs-fixture": "2.8.1",
+    "prettier": "3.6.2",
+    "semantic-release": "24.2.7",
+    "tsx": "4.20.4",
+    "typescript": "5.9.2"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    },
+    "./loader": {
+      "types": "./dist/loader.d.ts",
+      "default": "./dist/loader.js"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "funding": "https://kirkeaton.ca/sponsor",
+  "homepage": "https://github.com/dependency-owners/dependency-owners#readme",
+  "keywords": [
+    "dependency",
+    "owners"
+  ],
+  "license": "BSD-3-Clause",
+  "packageManager": "pnpm@10.14.0",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dependency-owners/dependency-owners.git"
+  },
+  "scripts": {
+    "build": "pnpm clean && tsc",
+    "clean": "rm -rf dist",
+    "format": "prettier \"**/*.{js,json,md,ts}\" --write",
+    "lint": "prettier \"**/*.{js,json,md,ts,md}\" --check",
+    "prepublishOnly": "pnpm build",
+    "test": "tsx --test",
+    "typecheck": "tsc --noEmit"
+  },
+  "type": "module"
+}
