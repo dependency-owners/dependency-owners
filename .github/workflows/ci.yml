@@ -19,7 +19,7 @@ jobs:
           - 20
     steps:
       - name: Checkout repo
-        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+        uses: actions/checkout@08eba0b27e820071cde6df949e0beb9ba4906955 # v4.3.0
       - name: Setup pnpm
         uses: pnpm/action-setup@a7487c7e89a18df4991f7f222e4898a00d66ddda # v4.1.0
       - name: Setup Node.js ${{ matrix.node-version }}
@@ -41,4 +41,4 @@ jobs:
         run: pnpm test
       - if: ${{ matrix.node-version == 24 }}
         name: Check for packaging errors
-        uses: kirkeaton/action-publint@cbe13157cb753a26a058ea0de896317abf78cd63 # v1.0.12
+        uses: kirkeaton/action-publint@cce8f8a434958047a7afb9ec1029c6b28e26a55e # v1.0.13
