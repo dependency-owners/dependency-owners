@@ -1,4 +1,4 @@
-import fs from 'node:fs/promises';
+import * as PackageJsonLoader from '@dependency-owners/package-json-loader';
 import path from 'node:path';
 
 import {
@@ -7,22 +7,6 @@ import {
   resolveDependencyLoader,
 } from './utils.js';
 import { DependencyLoader } from './loader.js';
-
-/**
- * Loader for loading dependencies from package.json files.
- */
-const PackageJsonLoader: DependencyLoader = {
-  async canLoad(filePath: string): Promise<boolean> {
-    return path.basename(filePath) === 'package.json';
-  },
-  async load(filePath: string): Promise<string[]> {
-    const pkg = JSON.parse(await fs.readFile(filePath, 'utf-8'));
-    return [
-      ...Object.keys(pkg.dependencies || {}),
-      ...Object.keys(pkg.devDependencies || {}),
-    ];
-  },
-};
 
 /**
  * Options for the dependency owners lookup.

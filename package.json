@@ -5,6 +5,7 @@
   "author": "Kirk Eaton <contact@kirkeaton.ca>",
   "bin": "./dist/cli.js",
   "dependencies": {
+    "@dependency-owners/package-json-loader": "1.0.0",
     "@stricli/core": "1.2.0"
   },
   "devDependencies": {
