@@ -1,12 +1,11 @@
 import * as PackageJsonLoader from '@dependency-owners/package-json-loader';
 import path from 'node:path';
 
+import { getOwners, getOwnersMapping } from './utils/owners.js';
 import {
-  getOwners,
-  getOwnersMapping,
   resolveDependencyLoader,
-} from './utils.js';
-import { DependencyLoader } from './loader.js';
+  type DependencyLoader,
+} from './utils/loader.js';
 
 /**
  * Options for the dependency owners lookup.

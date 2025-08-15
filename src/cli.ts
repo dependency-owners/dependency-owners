@@ -10,7 +10,8 @@ import { createRequire } from 'node:module';
 import path from 'node:path';
 
 import { dependencyOwners } from './index.js';
-import { getErrorMessage } from './utils.js';
+import { getErrorMessage } from './utils/message.js';
+import { getUnownedDependencies } from './utils/owners.js';
 
 const { name, version, description } = createRequire(import.meta.url)(
   '../package.json'
@@ -24,6 +25,7 @@ interface DependencyOwnersContext extends CommandContext {
 interface DependencyOwnersFlags {
   config: string;
   dependency?: string[];
+  'fail-on-unowned': boolean;
   loader?: string;
 }
 
@@ -44,6 +46,14 @@ const command = buildCommand({
         dependencyFile,
         loader: flags.loader,
       });
+      if (flags['fail-on-unowned']) {
+        const unownedDeps = getUnownedDependencies(result);
+        if (unownedDeps.length > 0) {
+          throw new Error(
+            `Unowned dependencies found: ${unownedDeps.join(', ')}`
+          );
+        }
+      }
       this.process.stdout.write(`${JSON.stringify(result, null, 2)}\n`);
     } catch (error) {
       const errorMessage = getErrorMessage(error);
@@ -67,6 +77,11 @@ const command = buildCommand({
         brief: 'List of dependencies to check.',
         optional: true,
         variadic: true,
+      },
+      'fail-on-unowned': {
+        kind: 'boolean',
+        brief: 'Fail if any dependencies are unowned.',
+        default: false,
       },
       loader: {
         kind: 'parsed',

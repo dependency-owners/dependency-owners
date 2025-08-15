@@ -30,6 +30,10 @@
     "./loader": {
       "types": "./dist/loader.d.ts",
       "default": "./dist/loader.js"
+    },
+    "./utils": {
+      "types": "./dist/utils.d.ts",
+      "default": "./dist/utils.js"
     }
   },
   "files": [
