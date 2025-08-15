@@ -50,7 +50,7 @@
     "build": "pnpm clean && tsc",
     "clean": "rm -rf dist",
     "format": "prettier \"**/*.{js,json,md,ts}\" --write",
-    "lint": "prettier \"**/*.{js,json,md,ts,md}\" --check",
+    "lint": "prettier \"**/*.{js,json,md,ts}\" --check",
     "prepublishOnly": "pnpm build",
     "test": "tsx --test",
     "typecheck": "tsc --noEmit"
