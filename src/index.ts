@@ -35,14 +35,14 @@ export interface DependencyOwnersOptions {
  * @returns {Promise<Record<string, string[]>>} A mapping of dependency owners for the specified dependencies.
  */
 export async function dependencyOwners(
-  options: DependencyOwnersOptions
+  options?: DependencyOwnersOptions
 ): Promise<Record<string, string[]>> {
   const {
     dependencies = [],
     loader = PackageJsonLoader,
     dependencyFile = path.join(process.cwd(), 'package.json'),
     configFile = path.join(process.cwd(), 'dependency-owners.json'),
-  } = options;
+  } = options || {};
 
   const resolvedLoader = await resolveDependencyLoader(loader, dependencyFile);
   if (!resolvedLoader) {
