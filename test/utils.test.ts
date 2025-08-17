@@ -1,7 +1,7 @@
 import assert from 'node:assert/strict';
 import { suite, test } from 'node:test';
 
-import { getUnownedDependencies } from '../src/utils.js';
+import { getUnownedDependencies } from '../src/utils.ts';
 
 suite('getUnownedDependencies', () => {
   test('should return unowned dependencies', () => {

@@ -1,1 +1,1 @@
-export type { DependencyLoader } from './utils/loader.js';
+export type { DependencyLoader } from './utils/loader.ts';

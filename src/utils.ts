@@ -1,1 +1,1 @@
-export { getUnownedDependencies } from './utils/owners.js';
+export { getUnownedDependencies } from './utils/owners.ts';

@@ -3,7 +3,7 @@ import path from 'node:path';
 import { suite, test } from 'node:test';
 import { createFixture } from 'fs-fixture';
 
-import { dependencyOwners } from '../src/index.js';
+import { dependencyOwners } from '../src/index.ts';
 
 suite('dependencyOwners', () => {
   test('returns owners for installed dependencies', async () => {

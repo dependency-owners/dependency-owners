@@ -9,9 +9,9 @@ import {
 import { createRequire } from 'node:module';
 import path from 'node:path';
 
-import { dependencyOwners } from './index.js';
-import { getErrorMessage } from './utils/message.js';
-import { getUnownedDependencies } from './utils/owners.js';
+import { dependencyOwners } from './index.ts';
+import { getErrorMessage } from './utils/message.ts';
+import { getUnownedDependencies } from './utils/owners.ts';
 
 const { name, version, description } = createRequire(import.meta.url)(
   '../package.json'
