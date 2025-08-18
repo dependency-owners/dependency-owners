@@ -10,7 +10,7 @@ importers:
     dependencies:
       '@dependency-owners/package-json-loader':
         specifier: 1.0.0
-        version: 1.0.0(dependency-owners@1.0.0)
+        version: 1.0.0(dependency-owners@1.1.1)
       '@stricli/core':
         specifier: 1.2.0
         version: 1.2.0
@@ -39,16 +39,6 @@ importers:
       typescript:
         specifier: 5.9.2
         version: 5.9.2
-
-  packages/dependency-owners:
-    dependencies:
-      '@stricli/core':
-        specifier: ^1.2.0
-        version: 1.2.0
-
-  packages/dependency-owners.bak: {}
-
-  packages/schemas: {}
 
 packages:
 
@@ -222,8 +212,8 @@ packages:
     resolution: {integrity: sha512-quJQXlTSUGL2LH9SUXo8VwsY4soanhgo6LNSm84E1LBcE8s3O0wpdiRzyR9z/ZZJMlMWv37qOOb9pdJlMUEKFQ==}
     engines: {node: '>=8'}
 
-  ansi-regex@6.1.0:
-    resolution: {integrity: sha512-7HSX4QQb4CspciLpVFwyRe79O3xsIZDDLER21kERQ71oaPodF8jL725AgJMFAYbooIqolJoRLuM81SpeUkpkvA==}
+  ansi-regex@6.2.0:
+    resolution: {integrity: sha512-TKY5pyBkHyADOPYlRT9Lx6F544mPl0vS5Ew7BJ45hA08Q+t3GjbueLliBWN3sMICk6+y7HdyxSzC4bWS8baBdg==}
     engines: {node: '>=12'}
 
   ansi-styles@3.2.1:
@@ -268,8 +258,8 @@ packages:
     resolution: {integrity: sha512-oKnbhFyRIXpUuez8iBMmyEa4nbj4IOQyuhc/wy9kY7/WVPcwIO9VA668Pu8RkO7+0G76SLROeyw9CpQ061i4mA==}
     engines: {node: '>=10'}
 
-  chalk@5.5.0:
-    resolution: {integrity: sha512-1tm8DTaJhPBG3bIkVeZt1iZM9GfSX2lzOeDVZH9R9ffRHpmHvxZ/QhgQH/aDTkswQVt+YHdXAdS/In/30OjCbg==}
+  chalk@5.6.0:
+    resolution: {integrity: sha512-46QrSQFyVSEyYAgQ22hQ+zDa60YHA4fBstHmtSApj1Y5vKtG27fWowW03jCk5KcbXEWPZUIR894aARCA/G1kfQ==}
     engines: {node: ^12.17.0 || ^14.13 || >=16.0.0}
 
   char-regex@1.0.2:
@@ -370,8 +360,8 @@ packages:
     resolution: {integrity: sha512-LOHxIOaPYdHlJRtCQfDIVZtfw/ufM8+rVj649RIHzcm/vGwQRXFt6OPqIFWsm2XEMrNIEtWR64sY1LEKD2vAOA==}
     engines: {node: '>=4.0.0'}
 
-  dependency-owners@1.0.0:
-    resolution: {integrity: sha512-gYSPkWgTc9eqjmIYk3zLlHu8w2Efs5qD+FpIhLd1nx7HCUgkJdNDxm6Yt7W/zWZsWXTgqMYDQZc8bF44OoK/8w==}
+  dependency-owners@1.1.1:
+    resolution: {integrity: sha512-yC+uePXGxgTkVo3+JqTpjRhYwnNwS7oKygaPPC96EGoexAYJqhaT0xvbgLRzwWVVGIG+gmQWViJpDqgHeqHK+Q==}
     engines: {node: '>=20'}
     hasBin: true
 
@@ -1249,9 +1239,9 @@ snapshots:
   '@colors/colors@1.5.0':
     optional: true
 
-  '@dependency-owners/package-json-loader@1.0.0(dependency-owners@1.0.0)':
+  '@dependency-owners/package-json-loader@1.0.0(dependency-owners@1.1.1)':
     dependencies:
-      dependency-owners: 1.0.0
+      dependency-owners: 1.1.1
 
   '@kirkeaton/prettier-config@1.0.5': {}
 
@@ -1444,7 +1434,7 @@ snapshots:
 
   ansi-regex@5.0.1: {}
 
-  ansi-regex@6.1.0: {}
+  ansi-regex@6.2.0: {}
 
   ansi-styles@3.2.1:
     dependencies:
@@ -1483,7 +1473,7 @@ snapshots:
       ansi-styles: 4.3.0
       supports-color: 7.2.0
 
-  chalk@5.5.0: {}
+  chalk@5.6.0: {}
 
   char-regex@1.0.2: {}
 
@@ -1586,8 +1576,9 @@ snapshots:
 
   deep-extend@0.6.0: {}
 
-  dependency-owners@1.0.0:
+  dependency-owners@1.1.1:
     dependencies:
+      '@dependency-owners/package-json-loader': 1.0.0(dependency-owners@1.1.1)
       '@stricli/core': 1.2.0
 
   dir-glob@3.0.1:
@@ -1898,8 +1889,8 @@ snapshots:
   marked-terminal@7.3.0(marked@15.0.12):
     dependencies:
       ansi-escapes: 7.0.0
-      ansi-regex: 6.1.0
-      chalk: 5.5.0
+      ansi-regex: 6.2.0
+      chalk: 5.6.0
       cli-highlight: 2.1.11
       cli-table3: 0.6.5
       marked: 15.0.12
