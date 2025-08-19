@@ -9,8 +9,8 @@ importers:
   .:
     dependencies:
       '@dependency-owners/package-json-loader':
-        specifier: 1.0.0
-        version: 1.0.0(dependency-owners@1.1.1)
+        specifier: 2.0.0
+        version: 2.0.0(dependency-owners@1.1.1)
       '@stricli/core':
         specifier: 1.2.0
         version: 1.2.0
@@ -59,6 +59,12 @@ packages:
     engines: {node: '>=20'}
     peerDependencies:
       dependency-owners: '>=1.0.0'
+
+  '@dependency-owners/package-json-loader@2.0.0':
+    resolution: {integrity: sha512-QCYZ4acwcmpdbKhrkP/smishYTTObJEA08c2iLLAXRU2FCby2AtftjZJGFQ1GP0TtPA5ih6lJ0s2/ybTtPEsyg==}
+    engines: {node: '>=20'}
+    peerDependencies:
+      dependency-owners: '>=1.2.1'
 
   '@kirkeaton/prettier-config@1.0.5':
     resolution: {integrity: sha512-1qTt9JF2M7geisH+Hk16aQWgYxxXFX5I3CvW5qFp8ipJ72ru93qK0bpsIhfiiXnKZS9FL3DC+cj+JCoPu3S7vg==}
@@ -1240,6 +1246,10 @@ snapshots:
     optional: true
 
   '@dependency-owners/package-json-loader@1.0.0(dependency-owners@1.1.1)':
+    dependencies:
+      dependency-owners: 1.1.1
+
+  '@dependency-owners/package-json-loader@2.0.0(dependency-owners@1.1.1)':
     dependencies:
       dependency-owners: 1.1.1
 
