@@ -10,7 +10,7 @@ importers:
     dependencies:
       '@dependency-owners/package-json-loader':
         specifier: 2.0.0
-        version: 2.0.0(dependency-owners@1.1.1)
+        version: 2.0.0(dependency-owners@1.2.1)
       '@stricli/core':
         specifier: 1.2.0
         version: 1.2.0
@@ -366,8 +366,8 @@ packages:
     resolution: {integrity: sha512-LOHxIOaPYdHlJRtCQfDIVZtfw/ufM8+rVj649RIHzcm/vGwQRXFt6OPqIFWsm2XEMrNIEtWR64sY1LEKD2vAOA==}
     engines: {node: '>=4.0.0'}
 
-  dependency-owners@1.1.1:
-    resolution: {integrity: sha512-yC+uePXGxgTkVo3+JqTpjRhYwnNwS7oKygaPPC96EGoexAYJqhaT0xvbgLRzwWVVGIG+gmQWViJpDqgHeqHK+Q==}
+  dependency-owners@1.2.1:
+    resolution: {integrity: sha512-TWCEpVK0MzZUviI3STMiKxLHYZfNtighxst9jkfCeqMkcjqwo1AQFSUcAkPGXbtdPs3C0XPQEmPOWR3ABJZIWg==}
     engines: {node: '>=20'}
     hasBin: true
 
@@ -1245,13 +1245,13 @@ snapshots:
   '@colors/colors@1.5.0':
     optional: true
 
-  '@dependency-owners/package-json-loader@1.0.0(dependency-owners@1.1.1)':
+  '@dependency-owners/package-json-loader@1.0.0(dependency-owners@1.2.1)':
     dependencies:
-      dependency-owners: 1.1.1
+      dependency-owners: 1.2.1
 
-  '@dependency-owners/package-json-loader@2.0.0(dependency-owners@1.1.1)':
+  '@dependency-owners/package-json-loader@2.0.0(dependency-owners@1.2.1)':
     dependencies:
-      dependency-owners: 1.1.1
+      dependency-owners: 1.2.1
 
   '@kirkeaton/prettier-config@1.0.5': {}
 
@@ -1586,9 +1586,9 @@ snapshots:
 
   deep-extend@0.6.0: {}
 
-  dependency-owners@1.1.1:
+  dependency-owners@1.2.1:
     dependencies:
-      '@dependency-owners/package-json-loader': 1.0.0(dependency-owners@1.1.1)
+      '@dependency-owners/package-json-loader': 1.0.0(dependency-owners@1.2.1)
       '@stricli/core': 1.2.0
 
   dir-glob@3.0.1:
