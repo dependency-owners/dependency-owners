@@ -43,9 +43,9 @@ suite('dependencyOwners', () => {
           },
           load: async (file) => {
             return [
-              'dep1',
-              'dep2',
-              'dep3',
+              { name: 'dep1', version: '1.0.0' },
+              { name: 'dep2', version: '1.2.3' },
+              { name: 'dep3', version: '3.2.1' },
             ];
           },
         };

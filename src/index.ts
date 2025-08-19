@@ -52,7 +52,9 @@ export async function dependencyOwners(
   const ownersMapping = getOwnersMapping(configFile);
   const resolvedDependencies = await resolvedLoader.load(dependencyFile);
   const filteredDependencies = resolvedDependencies
-    .map((dep) => (typeof dep === 'string' ? dep : dep.name))
-    .filter((dep) => dependencies.length === 0 || dependencies.includes(dep));
+    .filter(
+      (dep) => dependencies.length === 0 || dependencies.includes(dep.name)
+    )
+    .map((dep) => dep.name);
   return getOwners(filteredDependencies, ownersMapping);
 }

@@ -27,9 +27,9 @@ export interface DependencyLoader {
   /**
    * Load the dependencies from the specified file.
    * @param {string} filePath The path to the file to load dependencies from.
-   * @returns {string[] | Dependency[]} The list of loaded dependencies.
+   * @returns {Dependency[]} The list of loaded dependencies.
    */
-  load(filePath: string): Promise<string[] | Dependency[]>;
+  load(filePath: string): Promise<Dependency[]>;
 }
 
 /**
