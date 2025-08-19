@@ -1,6 +1,20 @@
 import path from 'node:path';
 
 /**
+ * Type representing a dependency.
+ */
+export interface Dependency {
+  /**
+   * The name of the dependency.
+   */
+  name: string;
+  /**
+   * The version of the dependency.
+   */
+  version: string;
+}
+
+/**
  * Interface for loading dependencies from various file types.
  */
 export interface DependencyLoader {
@@ -13,9 +27,9 @@ export interface DependencyLoader {
   /**
    * Load the dependencies from the specified file.
    * @param {string} filePath The path to the file to load dependencies from.
-   * @returns {string[]} The list of loaded dependencies.
+   * @returns {string[] | Dependency[]} The list of loaded dependencies.
    */
-  load(filePath: string): Promise<string[]>;
+  load(filePath: string): Promise<string[] | Dependency[]>;
 }
 
 /**
