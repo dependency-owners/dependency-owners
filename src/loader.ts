@@ -1,1 +1,5 @@
-export type { Dependency, DependencyLoader } from './utils/loader.ts';
+export {
+  resolveDependencyLoader,
+  type Dependency,
+  type DependencyLoader,
+} from './utils/loader.ts';
