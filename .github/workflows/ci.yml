@@ -47,4 +47,4 @@ jobs:
         uses: dependency-owners/check@6fc630706b6d41e773656e5a5e665475dc3cdfbc # v1.0.0
         with:
           dependency-file: 'package.json'
-          loader: '@dependency-owners/package-json-loader'
+          loader: './src/test-loader.js'
