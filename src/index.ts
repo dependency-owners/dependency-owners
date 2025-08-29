@@ -1,5 +1,5 @@
 import * as PackageJsonLoader from '@dependency-owners/package-json-loader';
-import path from 'node:path';
+import * as path from 'node:path';
 
 import { getOwners, getOwnersMapping } from './utils/owners.ts';
 import {

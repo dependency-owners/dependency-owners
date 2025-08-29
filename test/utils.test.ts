@@ -1,4 +1,4 @@
-import assert from 'node:assert/strict';
+import * as assert from 'node:assert/strict';
 import { suite, test } from 'node:test';
 
 import { getUnownedDependencies } from '../src/utils.ts';

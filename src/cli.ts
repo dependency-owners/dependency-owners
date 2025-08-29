@@ -7,7 +7,7 @@ import {
   type CommandContext,
 } from '@stricli/core';
 import { createRequire } from 'node:module';
-import path from 'node:path';
+import * as path from 'node:path';
 
 import { dependencyOwners } from './index.ts';
 import { getErrorMessage } from './utils/message.ts';

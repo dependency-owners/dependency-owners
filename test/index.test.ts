@@ -1,5 +1,5 @@
-import assert from 'node:assert/strict';
-import path from 'node:path';
+import * as assert from 'node:assert/strict';
+import * as path from 'node:path';
 import { suite, test } from 'node:test';
 import { createFixture } from 'fs-fixture';
 

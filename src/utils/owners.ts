@@ -1,4 +1,4 @@
-import fs from 'node:fs';
+import * as fs from 'node:fs';
 
 /**
  * Get the mapping of dependency owners from a JSON file.
