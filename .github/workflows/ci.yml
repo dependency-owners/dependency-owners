@@ -45,3 +45,6 @@ jobs:
       - if: ${{ matrix.node-version == 24 }}
         name: Check dependency owners
         uses: dependency-owners/check@b9df533cc6ece5095072de3673e69011c083858a # v1.0.0
+        with:
+          dependency-file: 'package.json'
+          loader: '@dependency-owners/package-json-loader'
