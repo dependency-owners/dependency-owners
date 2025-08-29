@@ -48,3 +48,9 @@ jobs:
         with:
           dependency-file: 'package.json'
           loader: '@dependency-owners/package-json-loader'
+      - if: ${{ matrix.node-version == 24 }}
+        name: Assign reviewers to dependency changes
+        uses: dependency-owners/assign@v1
+        with:
+          dependency-file: 'package.json'
+          loader: '@dependency-owners/package-json-loader'
