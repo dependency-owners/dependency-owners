@@ -5,10 +5,10 @@
   "author": "Kirk Eaton <contact@kirkeaton.ca>",
   "bin": "./dist/cli.js",
   "dependencies": {
-    "@dependency-owners/package-json-loader": "2.0.0",
     "@stricli/core": "1.2.0"
   },
   "devDependencies": {
+    "@dependency-owners/package-json-loader": "2.0.0",
     "@kirkeaton/prettier-config": "1.0.5",
     "@kirkeaton/semantic-release-config": "1.1.0",
     "@kirkeaton/tsconfig": "2.1.0",

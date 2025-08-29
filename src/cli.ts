@@ -26,7 +26,7 @@ interface DependencyOwnersFlags {
   config: string;
   dependency?: string[];
   'fail-on-unowned': boolean;
-  loader?: string;
+  loader: string;
 }
 
 function cwdParser(this: DependencyOwnersContext, rawInput: string): string {
@@ -87,7 +87,6 @@ const command = buildCommand({
         kind: 'parsed',
         parse: String,
         brief: 'Loader to use for loading dependencies.',
-        optional: true,
       },
     },
     positional: {
@@ -96,7 +95,6 @@ const command = buildCommand({
         {
           brief: 'Path to the dependency file.',
           placeholder: 'dependency-file',
-          default: 'package.json',
           parse: cwdParser,
         },
       ],

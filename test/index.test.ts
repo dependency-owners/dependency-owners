@@ -26,6 +26,7 @@ suite('dependencyOwners', () => {
     const result = await dependencyOwners({
       dependencyFile,
       configFile,
+      loader: '@dependency-owners/package-json-loader',
     });
     assert.deepEqual(result, {
       dep1: ['alice'],
@@ -100,6 +101,7 @@ suite('dependencyOwners', () => {
         await dependencyOwners({
           dependencyFile,
           configFile,
+          loader: '@dependency-owners/package-json-loader',
         });
       },
       {
@@ -165,6 +167,7 @@ suite('dependencyOwners', () => {
         await dependencyOwners({
           dependencyFile,
           configFile,
+          loader: '@dependency-owners/package-json-loader',
         });
       },
       {

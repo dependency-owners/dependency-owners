@@ -1,4 +1,3 @@
-import * as PackageJsonLoader from '@dependency-owners/package-json-loader';
 import * as path from 'node:path';
 
 import { getOwners, getOwnersMapping } from './utils/owners.ts';
@@ -14,7 +13,7 @@ export interface DependencyOwnersOptions {
   /**
    * Path to the dependency file.
    */
-  dependencyFile?: string;
+  dependencyFile: string;
   /**
    * Path to the configuration file.
    */
@@ -26,7 +25,7 @@ export interface DependencyOwnersOptions {
   /**
    * Loader to use for loading dependencies.
    */
-  loader?: string | DependencyLoader;
+  loader: string | DependencyLoader;
 }
 
 /**
@@ -35,14 +34,14 @@ export interface DependencyOwnersOptions {
  * @returns {Promise<Record<string, string[]>>} A mapping of dependency owners for the specified dependencies.
  */
 export async function dependencyOwners(
-  options?: DependencyOwnersOptions
+  options: DependencyOwnersOptions
 ): Promise<Record<string, string[]>> {
   const {
     dependencies = [],
-    loader = PackageJsonLoader,
-    dependencyFile = path.join(process.cwd(), 'package.json'),
+    loader,
+    dependencyFile,
     configFile = path.join(process.cwd(), 'dependency-owners.json'),
-  } = options || {};
+  } = options;
 
   const resolvedLoader = await resolveDependencyLoader(loader, dependencyFile);
   if (!resolvedLoader) {
