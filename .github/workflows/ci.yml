@@ -44,7 +44,7 @@ jobs:
         uses: kirkeaton/action-publint@cce8f8a434958047a7afb9ec1029c6b28e26a55e # v1.0.13
       - if: ${{ matrix.node-version == 24 }}
         name: Check dependency owners
-        uses: dependency-owners/check@07d745888d74e07c9076f70de3ef22c7c70b031a # v1.0.0
+        uses: dependency-owners/check@6fc630706b6d41e773656e5a5e665475dc3cdfbc # v1.0.0
         with:
           dependency-file: 'package.json'
           loader: '@dependency-owners/package-json-loader'
