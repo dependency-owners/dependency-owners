@@ -28,8 +28,8 @@ importers:
         specifier: 24.6.2
         version: 24.6.2
       fs-fixture:
-        specifier: 2.8.1
-        version: 2.8.1
+        specifier: 2.9.0
+        version: 2.9.0
       prettier:
         specifier: 3.6.2
         version: 3.6.2
@@ -450,8 +450,8 @@ packages:
     resolution: {integrity: sha512-Xr9F6z6up6Ws+NjzMCZc6WXg2YFRlrLP9NQDO3VQrWrfiojdhS56TzueT88ze0uBdCTwEIhQ3ptnmKeWGFAe0A==}
     engines: {node: '>=14.14'}
 
-  fs-fixture@2.8.1:
-    resolution: {integrity: sha512-C0xA7XvqZBbbOgitWcMDstfih8GaOPEyXfvNefmV7+1573TCnFQ6hAJEUEzH2LVrscONLh73rvayNfa/m9PMgw==}
+  fs-fixture@2.9.0:
+    resolution: {integrity: sha512-I/DNkzRfL71uabv3270h+lLOlJrUbQDHXb6JZxN8cgiFn0pi0dCE+etE8pzCvMuguSq34ClGXInhoaSW+1RZpw==}
     engines: {node: '>=18.0.0'}
 
   function-timeout@1.0.2:
@@ -1633,7 +1633,7 @@ snapshots:
       jsonfile: 6.2.0
       universalify: 2.0.1
 
-  fs-fixture@2.8.1: {}
+  fs-fixture@2.9.0: {}
 
   function-timeout@1.0.2: {}
 
