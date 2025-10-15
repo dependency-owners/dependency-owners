@@ -9,8 +9,8 @@ importers:
   .:
     dependencies:
       '@stricli/core':
-        specifier: 1.2.1
-        version: 1.2.1
+        specifier: 1.2.4
+        version: 1.2.4
     devDependencies:
       '@dependency-owners/package-json-loader':
         specifier: 2.0.0
@@ -174,8 +174,8 @@ packages:
   '@stricli/core@1.2.0':
     resolution: {integrity: sha512-5b+npntDY0TAB7wAw0daGlh3/R2sf0TDLyrB1By2jCNH+C+lmcSqMtJXOMLVtEGSkIOvqAgIWpLMSs1PXqzt3w==}
 
-  '@stricli/core@1.2.1':
-    resolution: {integrity: sha512-dTv2m2xYE/mtRC6RR4ici4msx7gba+hGTplgIK1JT+wVl1L7ODb9S9n2VVQ9OBKBAQB3wvBqr8Z4jcUZpeALUA==}
+  '@stricli/core@1.2.4':
+    resolution: {integrity: sha512-ujvJDQpC2FINWvlTjkFz+Qzw/vsB8p/LyZEW18idisqIyjXR6yb+sF3WTUPksl+5ZON5r4fHQnCqQWnJxeqSzg==}
 
   '@types/node@24.7.2':
     resolution: {integrity: sha512-/NbVmcGTP+lj5oa4yiYxxeBjRivKQ5Ns1eSZeB99ExsEQ6rX5XYU1Zy/gGxY/ilqtD4Etx9mKyrPxZRetiahhA==}
@@ -1357,7 +1357,7 @@ snapshots:
 
   '@stricli/core@1.2.0': {}
 
-  '@stricli/core@1.2.1': {}
+  '@stricli/core@1.2.4': {}
 
   '@types/node@24.7.2':
     dependencies:
