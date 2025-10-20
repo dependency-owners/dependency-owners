@@ -14,7 +14,7 @@ importers:
     devDependencies:
       '@dependency-owners/package-json-loader':
         specifier: 2.0.0
-        version: 2.0.0(dependency-owners@3.0.0)
+        version: 2.0.0(dependency-owners@3.0.1)
       '@kirkeaton/prettier-config':
         specifier: 1.0.5
         version: 1.0.5
@@ -187,8 +187,8 @@ packages:
     resolution: {integrity: sha512-tlqY9xq5ukxTUZBmoOp+m61cqwQD5pHJtFY3Mn8CA8ps6yghLH/Hw8UPdqg4OLmFW3IFlcXnQNmo/dh8HzXYIQ==}
     engines: {node: '>=18'}
 
-  '@stricli/core@1.2.0':
-    resolution: {integrity: sha512-5b+npntDY0TAB7wAw0daGlh3/R2sf0TDLyrB1By2jCNH+C+lmcSqMtJXOMLVtEGSkIOvqAgIWpLMSs1PXqzt3w==}
+  '@stricli/core@1.2.1':
+    resolution: {integrity: sha512-dTv2m2xYE/mtRC6RR4ici4msx7gba+hGTplgIK1JT+wVl1L7ODb9S9n2VVQ9OBKBAQB3wvBqr8Z4jcUZpeALUA==}
 
   '@stricli/core@1.2.4':
     resolution: {integrity: sha512-ujvJDQpC2FINWvlTjkFz+Qzw/vsB8p/LyZEW18idisqIyjXR6yb+sF3WTUPksl+5ZON5r4fHQnCqQWnJxeqSzg==}
@@ -367,8 +367,8 @@ packages:
     resolution: {integrity: sha512-LOHxIOaPYdHlJRtCQfDIVZtfw/ufM8+rVj649RIHzcm/vGwQRXFt6OPqIFWsm2XEMrNIEtWR64sY1LEKD2vAOA==}
     engines: {node: '>=4.0.0'}
 
-  dependency-owners@3.0.0:
-    resolution: {integrity: sha512-q7lh2AQxJqjBkjWE+KJlwO5VnIMU2zczC1kITcQeLApO9lYBuPviraBo9Gh9JgFBnDuGeDI3G5NNQgav+MFLUQ==}
+  dependency-owners@3.0.1:
+    resolution: {integrity: sha512-zjGBtjx7nsrUGTG+JG+I0M25ME8iHYN+8EikD2xIO6BgV/7r4aQWx1DB3TVuOchww2uXfLQaDviIV5IMSD9+hg==}
     engines: {node: '>=20'}
     hasBin: true
 
@@ -1259,9 +1259,9 @@ snapshots:
   '@colors/colors@1.5.0':
     optional: true
 
-  '@dependency-owners/package-json-loader@2.0.0(dependency-owners@3.0.0)':
+  '@dependency-owners/package-json-loader@2.0.0(dependency-owners@3.0.1)':
     dependencies:
-      dependency-owners: 3.0.0
+      dependency-owners: 3.0.1
 
   '@fastify/busboy@2.1.1': {}
 
@@ -1423,7 +1423,7 @@ snapshots:
 
   '@sindresorhus/merge-streams@4.0.0': {}
 
-  '@stricli/core@1.2.0': {}
+  '@stricli/core@1.2.1': {}
 
   '@stricli/core@1.2.4': {}
 
@@ -1590,9 +1590,9 @@ snapshots:
 
   deep-extend@0.6.0: {}
 
-  dependency-owners@3.0.0:
+  dependency-owners@3.0.1:
     dependencies:
-      '@stricli/core': 1.2.0
+      '@stricli/core': 1.2.1
 
   dir-glob@3.0.1:
     dependencies:
