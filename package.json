@@ -16,7 +16,8 @@
     "fs-fixture": "2.11.0",
     "prettier": "3.7.4",
     "semantic-release": "25.0.2",
-    "typescript": "5.9.3"
+    "typescript": "5.9.3",
+    "vitepress": "^1.6.4"
   },
   "engines": {
     "node": ">=20"
@@ -46,6 +47,11 @@
   ],
   "license": "BSD-3-Clause",
   "packageManager": "pnpm@10.25.0",
+  "pnpm": {
+    "onlyBuiltDependencies": [
+      "esbuild"
+    ]
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/dependency-owners/dependency-owners.git"
@@ -53,8 +59,11 @@
   "scripts": {
     "build": "pnpm clean && tsc",
     "clean": "rm -rf dist",
-    "format": "prettier \"**/*.{js,json,md,ts}\" --write",
-    "lint": "prettier \"**/*.{js,json,md,ts}\" --check",
+    "docs:dev": "vitepress dev docs",
+    "docs:build": "vitepress build docs",
+    "docs:preview": "vitepress preview docs",
+    "format": "prettier \"**/*.{html,js,json,md,ts}\" --write",
+    "lint": "prettier \"**/*.{html,js,json,md,ts}\" --check",
     "prepublishOnly": "pnpm build",
     "test": "node --test",
     "typecheck": "tsc --noEmit"
