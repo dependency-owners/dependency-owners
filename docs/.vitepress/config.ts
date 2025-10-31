@@ -9,16 +9,14 @@ export default defineConfig({
     nav: [
       {
         text: 'Docs',
-        link: '/usage/getting-started'
-      }
+        link: '/usage/getting-started',
+      },
     ],
 
     sidebar: [
       {
         text: 'Usage',
-        items: [
-          { text: 'Getting started', link: '/usage/getting-started' },
-        ],
+        items: [{ text: 'Getting started', link: '/usage/getting-started' }],
       },
     ],
 
