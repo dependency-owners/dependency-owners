@@ -16,7 +16,8 @@
     "fs-fixture": "2.10.1",
     "prettier": "3.6.2",
     "semantic-release": "25.0.1",
-    "typescript": "5.9.3"
+    "typescript": "5.9.3",
+    "vitepress": "1.6.4"
   },
   "engines": {
     "node": ">=20"
@@ -53,6 +54,9 @@
   "scripts": {
     "build": "pnpm clean && tsc",
     "clean": "rm -rf dist",
+    "docs:dev": "vitepress dev docs",
+    "docs:build": "vitepress build docs",
+    "docs:preview": "vitepress preview docs",
     "format": "prettier \"**/*.{html,js,json,md,ts}\" --write",
     "lint": "prettier \"**/*.{html,js,json,md,ts}\" --check",
     "prepublishOnly": "pnpm build",
