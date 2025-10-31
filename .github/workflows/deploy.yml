@@ -1,4 +1,4 @@
-name: Deploy docs site to Pages
+name: Deploy docs
 on:
   push:
     branches: [main, docs]
@@ -12,6 +12,7 @@ concurrency:
   cancel-in-progress: false
 jobs:
   build:
+    name: Build
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repo
