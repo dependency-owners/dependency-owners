@@ -8,13 +8,44 @@ export default defineConfig({
     nav: [
       {
         text: 'Docs',
-        link: '/usage/getting-started',
+        link: '/',
       },
     ],
     sidebar: [
       {
-        text: 'Usage',
-        items: [{ text: 'Getting started', link: '/usage/getting-started' }],
+        text: 'Introduction',
+        items: [
+          {
+            text: 'Getting started',
+            link: '/',
+          },
+        ],
+      },
+      {
+        text: 'Guides',
+        items: [
+          {
+            text: 'CLI',
+            link: 'guide/cli',
+          },
+          {
+            text: 'JavaScript API',
+            link: 'guide/javascript-api',
+          },
+          {
+            text: 'Using Loaders',
+            link: 'guide/using-loaders',
+          },
+        ],
+      },
+      {
+        text: 'APIs',
+        items: [
+          {
+            text: 'Loader API',
+            link: 'api/loader',
+          },
+        ],
       },
     ],
     socialLinks: [
