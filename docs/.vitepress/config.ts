@@ -1,25 +1,22 @@
 import { defineConfig } from 'vitepress';
 
-// https://vitepress.dev/reference/site-config
 export default defineConfig({
   title: 'dependency-owners',
   description: 'Determine ownership of dependencies in a project',
+  base: '/dependency-owners/',
   themeConfig: {
-    // https://vitepress.dev/reference/default-theme-config
     nav: [
       {
         text: 'Docs',
         link: '/usage/getting-started',
       },
     ],
-
     sidebar: [
       {
         text: 'Usage',
         items: [{ text: 'Getting started', link: '/usage/getting-started' }],
       },
     ],
-
     socialLinks: [
       {
         icon: 'github',
