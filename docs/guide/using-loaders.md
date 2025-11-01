@@ -22,7 +22,7 @@ yarn add -D @dependency-owners/package-json-loader
 
 :::
 
-## Oficial Loaders
+## Official Loaders
 
 | Dependency file | Loader                                                                                             |
 | --------------- | -------------------------------------------------------------------------------------------------- |
