@@ -10,6 +10,7 @@
     "prettier",
     "semantic-release",
     "tsx",
-    "typescript"
+    "typescript",
+    "vitepress"
   ]
 }
