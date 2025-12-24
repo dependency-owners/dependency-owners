@@ -16,7 +16,7 @@ await dependencyOwners({
 
 ### dependencyOwners(options) => Promise
 
-Runs **dependency-owners** and returns a `Promise` that resolves to a mapping of dependency owners for the specified dependencies.
+Runs **dependency-owners** and returns a `Promise` that resolves to a [Result](#result).
 
 #### options
 
@@ -53,3 +53,25 @@ Type: `string[]`
 Default: `[]`
 
 List of dependencies to check. If an empty list is provided, all dependencies will be checked.
+
+### Result
+
+A mapping of dependency owners for the specified dependencies.
+
+A simple example (for the dependencies in the repositories):
+
+```json
+{
+  "@stricli/core": ["kirkeaton"],
+  "@dependency-owners/package-json-loader": ["kirkeaton"],
+  "@kirkeaton/prettier-config": ["kirkeaton"],
+  "@kirkeaton/semantic-release-config": ["kirkeaton"],
+  "@kirkeaton/tsconfig": ["kirkeaton"],
+  "@types/node": ["kirkeaton"],
+  "fs-fixture": ["kirkeaton"],
+  "prettier": ["kirkeaton"],
+  "semantic-release": ["kirkeaton"],
+  "typescript": ["kirkeaton"],
+  "vitepress": ["kirkeaton"]
+}
+```
