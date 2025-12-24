@@ -58,7 +58,7 @@ List of dependencies to check. If an empty list is provided, all dependencies wi
 
 A mapping of dependency owners for the specified dependencies.
 
-A simple example (for the dependencies in the repositories):
+A simple example (for the dependencies in this repository):
 
 ```json
 {
