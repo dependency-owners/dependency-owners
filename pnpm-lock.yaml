@@ -9,8 +9,8 @@ importers:
   .:
     dependencies:
       '@stricli/core':
-        specifier: 1.2.4
-        version: 1.2.4
+        specifier: 1.2.5
+        version: 1.2.5
     devDependencies:
       '@dependency-owners/package-json-loader':
         specifier: 2.0.0
@@ -585,6 +585,9 @@ packages:
 
   '@stricli/core@1.2.4':
     resolution: {integrity: sha512-ujvJDQpC2FINWvlTjkFz+Qzw/vsB8p/LyZEW18idisqIyjXR6yb+sF3WTUPksl+5ZON5r4fHQnCqQWnJxeqSzg==}
+
+  '@stricli/core@1.2.5':
+    resolution: {integrity: sha512-+afyztQW7fwWkqmU2WQZbdc3LjnZThWYdtE0l+hykZ1Rvy7YGxZSvsVCS/wZ/2BNv117pQ9TU1GZZRIcPnB4tw==}
 
   '@types/estree@1.0.8':
     resolution: {integrity: sha512-dWHzHa2WqEXI/O1E9OjrocMTKJl2mSrEolh1Iomrv6U+JuNwaHXsXx9bLu5gG7BUWFIN0skIQJQ/L1rIex4X6w==}
@@ -2555,6 +2558,8 @@ snapshots:
   '@sindresorhus/merge-streams@4.0.0': {}
 
   '@stricli/core@1.2.4': {}
+
+  '@stricli/core@1.2.5': {}
 
   '@types/estree@1.0.8': {}
 
