@@ -24,7 +24,7 @@ jobs:
       - name: Setup pnpm
         uses: pnpm/action-setup@41ff72655975bd51cab0327fa583b6e92b6d3061 # v4.2.0
       - name: Setup Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@395ad3262231945c25e8478fd5baf05154b1d79f # v6.1.0
+        uses: actions/setup-node@6044e13b5dc448c55e2357c09f80417699197238 # v6.2.0
         with:
           node-version: ${{ matrix.node-version }}
           cache: 'pnpm'
@@ -42,7 +42,7 @@ jobs:
         run: pnpm test
       - if: ${{ matrix.node-version == 24 }}
         name: Check for packaging errors
-        uses: kirkeaton/action-publint@dad44412a6834a8c77f31d33ccd3c70c31bcd280 # v2.0.6
+        uses: kirkeaton/action-publint@c055793f83e94cd58fde48f15ca56e579bd4f165 # v2.0.7
       - if: ${{ matrix.node-version == 24 }}
         name: Check dependency owners
         uses: dependency-owners/check@5a44061de70a54d09763658d097e66881dba1a4f # v2.0.4
