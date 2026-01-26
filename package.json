@@ -10,12 +10,10 @@
   "devDependencies": {
     "@dependency-owners/package-json-loader": "2.0.0",
     "@kirkeaton/prettier-config": "1.0.6",
-    "@kirkeaton/semantic-release-config": "2.0.1",
     "@kirkeaton/tsconfig": "2.1.1",
     "@types/node": "24.10.9",
     "fs-fixture": "2.11.0",
     "prettier": "3.8.1",
-    "semantic-release": "25.0.2",
     "typescript": "5.9.3",
     "vitepress": "1.6.4"
   },
@@ -46,25 +44,19 @@
     "owners"
   ],
   "license": "BSD-3-Clause",
-  "packageManager": "pnpm@10.28.1",
-  "pnpm": {
-    "onlyBuiltDependencies": [
-      "esbuild"
-    ]
-  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/dependency-owners/dependency-owners.git"
   },
   "scripts": {
-    "build": "pnpm clean && tsc",
+    "build": "npm run clean && tsc",
     "clean": "rm -rf dist",
     "docs:dev": "vitepress dev docs",
     "docs:build": "vitepress build docs",
     "docs:preview": "vitepress preview docs",
     "format": "prettier \"**/*.{html,js,json,md,ts}\" --write",
     "lint": "prettier \"**/*.{html,js,json,md,ts}\" --check",
-    "prepublishOnly": "pnpm build",
+    "prepublishOnly": "npm run build",
     "test": "node --test",
     "typecheck": "tsc --noEmit"
   },
