@@ -10,11 +10,11 @@
   "devDependencies": {
     "@dependency-owners/package-json-loader": "2.0.1",
     "@kirkeaton/prettier-config": "1.0.6",
-    "@kirkeaton/tsconfig": "2.1.1",
+    "@kirkeaton/tsconfig": "2.2.2",
     "@types/node": "24.12.0",
     "fs-fixture": "2.11.0",
     "prettier": "3.8.1",
-    "typescript": "5.9.3",
+    "typescript": "6.0.2",
     "vitepress": "1.6.4"
   },
   "engines": {
