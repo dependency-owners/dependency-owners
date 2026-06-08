@@ -21,7 +21,7 @@ jobs:
           - 20
     steps:
       - name: Checkout repo
-        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+        uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10 # v6.0.3
       - name: Setup Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@48b55a011bda9f5d6aeb4c2d9c7362e8dae4041e # v6.4.0
         with:
@@ -41,16 +41,16 @@ jobs:
         run: npm run test
       - if: ${{ matrix.node-version == 26 }}
         name: Check for packaging errors
-        uses: kirkeaton/action-publint@556917da0318032bdc8afe9c88fe948c49bb2dc7 # v2.0.16
+        uses: kirkeaton/action-publint@2f47f042fffcbd4c2d52f4a2da83b88b0ebfdf80 # v2.0.17
       - if: ${{ matrix.node-version == 26 }}
         name: Check dependency owners
-        uses: dependency-owners/check@e28456f383afdf92485499da9902e8521211e4c3 # v2.0.14
+        uses: dependency-owners/check@7f542a901e37806e4dbcd09a88d4c4f75f47bf67 # v2.0.15
         with:
           dependency-file: 'package.json'
           loader: '@dependency-owners/package-json-loader'
       - if: ${{ matrix.node-version == 26 }}
         name: Assign reviewers to dependency changes
-        uses: dependency-owners/assign@7547a4d192137f4dbc16d9bfc32c1366ff2a6985 # v2.0.21
+        uses: dependency-owners/assign@cdb85bd37f859d854f0ef762a0ae57f8920aa74a # v2.0.22
         with:
           dependency-file: 'package.json'
           loader: '@dependency-owners/package-json-loader'
