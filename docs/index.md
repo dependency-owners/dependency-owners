@@ -8,7 +8,7 @@ Documentation is still a work in progress
 
 ### Prerequisites
 
-- [Node.js](https://nodejs.org/) version 20 or higher.
+- [Node.js](https://nodejs.org/) version 22 or higher.
 
 ::: code-group
 
