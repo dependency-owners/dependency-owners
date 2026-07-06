@@ -28,6 +28,11 @@ export interface DependencyOwnersOptions {
   loader: string | DependencyLoader | Array<string | DependencyLoader>;
 }
 
+/**
+ * Convert a value to an array. If the value is already an array, it is returned as-is. Otherwise, it is wrapped in an array.
+ * @param {T | T[]} value The value to convert to an array.
+ * @returns {T[]} The value as an array.
+ */
 function toArray<T>(value: T | T[]): T[] {
   return Array.isArray(value) ? value : [value];
 }
@@ -51,8 +56,9 @@ export async function dependencyOwners(
   const dependencyFiles = toArray(dependencyFile);
   const loaders = toArray(loader);
 
+  // Resolve dependencies from all specified files using the appropriate loaders
   const resolvedDependencies = await Promise.all(
-    dependencyFiles.map(async (filePath, index) => {
+    dependencyFiles.map(async (filePath) => {
       const resolvedLoader = await resolveDependencyLoader(loaders, filePath);
       if (!resolvedLoader) {
         throw new Error(`No loader found for file: ${filePath}`);
@@ -61,6 +67,7 @@ export async function dependencyOwners(
     })
   );
 
+  // Filter the resolved dependencies based on the specified dependencies and get their owners
   const filteredDependencies = resolvedDependencies
     .flatMap((resolved) =>
       resolved.filter(
