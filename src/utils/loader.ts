@@ -78,16 +78,24 @@ async function importDependencyLoader(
 
 /**
  * Resolve a dependency loader for a specific file.
- * @param {DependencyLoader | string} loader The loader to use.
+ * @param {Array<string | DependencyLoader>} loaders The loaders to use.
  * @param {string} depFilePath The path to the dependency file.
  * @returns {Promise<DependencyLoader | undefined>} The resolved dependency loader or undefined if not found.
  */
 export async function resolveDependencyLoader(
-  loader: DependencyLoader | string,
+  loaders: Array<string | DependencyLoader>,
   depFilePath: string
 ): Promise<DependencyLoader | undefined> {
-  const resolvedLoader =
-    typeof loader === 'string' ? await importDependencyLoader(loader) : loader;
-  const canLoad = await resolvedLoader.canLoad(depFilePath);
-  return canLoad ? resolvedLoader : undefined;
+  const resolvedLoaders = await Promise.all(
+    loaders.map((loader) =>
+      typeof loader === 'string' ? importDependencyLoader(loader) : loader
+    )
+  );
+  for (const resolvedLoader of resolvedLoaders) {
+    const canLoad = await resolvedLoader.canLoad(depFilePath);
+    if (canLoad) {
+      return resolvedLoader;
+    }
+  }
+  return undefined;
 }

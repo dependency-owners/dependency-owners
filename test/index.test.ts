@@ -1,7 +1,11 @@
+import { execFile } from 'node:child_process';
 import * as assert from 'node:assert/strict';
 import * as path from 'node:path';
+import { promisify } from 'node:util';
 import { suite, test } from 'node:test';
 import { createFixture } from 'fs-fixture';
+
+const execFileAsync = promisify(execFile);
 
 import { dependencyOwners } from '../src/index.ts';
 
@@ -77,6 +81,103 @@ suite('dependencyOwners', () => {
       dep2: ['bob'],
       dep3: [],
     });
+  });
+
+  test('supports multiple dependency files and loaders', async () => {
+    const fixture = await createFixture({
+      'custom-loader.js': `
+        module.exports = {
+          canLoad: async (file) => file.endsWith('.custom.json'),
+          load: async (file) => {
+            return [
+              { name: 'dep2', version: '2.0.0' },
+              { name: 'dep3', version: '3.2.1' },
+            ];
+          },
+        };
+      `,
+      'dependency-owners.json': JSON.stringify({
+        alice: ['dep1'],
+        bob: ['dep2'],
+      }),
+      'package.json': JSON.stringify({
+        dependencies: {
+          dep1: '^1.0.0',
+          dep2: '^2.0.0',
+          dep3: '^3.0.0',
+        },
+      }),
+      'custom.custom.json': JSON.stringify({
+        dependencies: {
+          dep2: '^2.0.0',
+          dep3: '^3.0.0',
+        },
+      }),
+    });
+    const packageFile = fixture.getPath('package.json');
+    const customFile = fixture.getPath('custom.custom.json');
+    const configFile = fixture.getPath('dependency-owners.json');
+    const loaderPath = fixture.getPath('custom-loader.js');
+
+    const result = await dependencyOwners({
+      dependencyFile: [packageFile, customFile],
+      configFile,
+      loader: ['@dependency-owners/package-json-loader', loaderPath],
+    });
+
+    assert.deepEqual(result, {
+      dep1: ['alice'],
+      dep2: ['bob'],
+      dep3: [],
+    });
+  });
+
+  test('cli supports multiple dependency files and loaders', async () => {
+    const fixture = await createFixture({
+      'custom-loader.js': `
+        module.exports = {
+          canLoad: async (file) => file.endsWith('.custom.json'),
+          load: async (file) => {
+            return [{ name: 'dep2', version: '2.0.0' }];
+          },
+        };
+      `,
+      'dependency-owners.json': JSON.stringify({
+        alice: ['dep1'],
+        bob: ['dep2'],
+      }),
+      'package.json': JSON.stringify({
+        dependencies: {
+          dep1: '^1.0.0',
+          dep2: '^2.0.0',
+        },
+      }),
+      'custom.custom.json': JSON.stringify({
+        dependencies: {
+          dep2: '^2.0.0',
+        },
+      }),
+    });
+
+    const cliPath = path.resolve(process.cwd(), 'src/cli.ts');
+    const { stdout } = await execFileAsync(
+      process.execPath,
+      [
+        cliPath,
+        'package.json',
+        'custom.custom.json',
+        '--loader',
+        '@dependency-owners/package-json-loader',
+        '--loader',
+        fixture.getPath('custom-loader.js'),
+      ],
+      {
+        cwd: fixture.path,
+      }
+    );
+
+    assert.match(stdout, /"dep1": \[\s*"alice"\s*\]/);
+    assert.match(stdout, /"dep2": \[\s*"bob"\s*\]/);
   });
 
   test('throws error if dependency file cannot be loaded', async () => {

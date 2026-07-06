@@ -26,7 +26,7 @@ interface DependencyOwnersFlags {
   config: string;
   dependency?: string[];
   'fail-on-unowned': boolean;
-  loader: string;
+  loader: string[];
 }
 
 function cwdParser(this: DependencyOwnersContext, rawInput: string): string {
@@ -37,13 +37,13 @@ const command = buildCommand({
   async func(
     this: DependencyOwnersContext,
     flags: DependencyOwnersFlags,
-    dependencyFile: string
+    ...dependencyFiles: string[]
   ): Promise<void> {
     try {
       const result = await dependencyOwners({
         configFile: flags.config,
         dependencies: flags.dependency,
-        dependencyFile,
+        dependencyFile: dependencyFiles,
         loader: flags.loader,
       });
       if (flags['fail-on-unowned']) {
@@ -87,17 +87,16 @@ const command = buildCommand({
         kind: 'parsed',
         parse: String,
         brief: 'Loader to use for loading dependencies.',
+        variadic: true,
       },
     },
     positional: {
-      kind: 'tuple',
-      parameters: [
-        {
-          brief: 'Path to the dependency file.',
-          placeholder: 'dependency-file',
-          parse: cwdParser,
-        },
-      ],
+      kind: 'array',
+      parameter: {
+        brief: 'Path to the dependency file.',
+        placeholder: 'dependency-file',
+        parse: cwdParser,
+      },
     },
   },
   docs: {

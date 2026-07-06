@@ -11,9 +11,9 @@ import {
  */
 export interface DependencyOwnersOptions {
   /**
-   * Path to the dependency file.
+   * Path to the dependency file or files.
    */
-  dependencyFile: string;
+  dependencyFile: string | string[];
   /**
    * Path to the configuration file.
    */
@@ -23,9 +23,13 @@ export interface DependencyOwnersOptions {
    */
   dependencies?: string[];
   /**
-   * Loader to use for loading dependencies.
+   * Loader or loaders to use for loading dependencies.
    */
-  loader: string | DependencyLoader;
+  loader: string | DependencyLoader | Array<string | DependencyLoader>;
+}
+
+function toArray<T>(value: T | T[]): T[] {
+  return Array.isArray(value) ? value : [value];
 }
 
 /**
@@ -43,17 +47,26 @@ export async function dependencyOwners(
     configFile = path.join(process.cwd(), 'dependency-owners.json'),
   } = options;
 
-  const resolvedLoader = await resolveDependencyLoader(loader, dependencyFile);
-  if (!resolvedLoader) {
-    throw new Error(`No loader found for file: ${dependencyFile}`);
-  }
-
   const ownersMapping = getOwnersMapping(configFile);
-  const resolvedDependencies = await resolvedLoader.load(dependencyFile);
+  const dependencyFiles = toArray(dependencyFile);
+  const loaders = toArray(loader);
+
+  const resolvedDependencies = await Promise.all(
+    dependencyFiles.map(async (filePath, index) => {
+      const resolvedLoader = await resolveDependencyLoader(loaders, filePath);
+      if (!resolvedLoader) {
+        throw new Error(`No loader found for file: ${filePath}`);
+      }
+      return resolvedLoader.load(filePath);
+    })
+  );
+
   const filteredDependencies = resolvedDependencies
-    .filter(
-      (dep) => dependencies.length === 0 || dependencies.includes(dep.name)
+    .flatMap((resolved) =>
+      resolved.filter(
+        (dep) => dependencies.length === 0 || dependencies.includes(dep.name)
+      )
     )
     .map((dep) => dep.name);
-  return getOwners(filteredDependencies, ownersMapping);
+  return getOwners(Array.from(new Set(filteredDependencies)), ownersMapping);
 }
