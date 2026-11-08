@@ -20,10 +20,6 @@ export default defineConfig({
             link: '/',
           },
           {
-            text: 'CLI',
-            link: 'usage/cli',
-          },
-          {
             text: 'Configuration',
             link: '/usage/configuration',
           },
@@ -31,18 +27,31 @@ export default defineConfig({
             text: 'Loaders',
             link: '/usage/loaders',
           },
+          {
+            text: 'CLI',
+            link: '/usage/cli',
+          },
         ],
       },
       {
-        text: 'Guides',
+        text: 'CI Configuration',
+        items: [
+          {
+            text: 'GitHub Actions',
+            link: '/ci-configuration/github-actions',
+          },
+        ],
+      },
+      {
+        text: 'Developer Guide',
         items: [
           {
             text: 'JavaScript API',
-            link: 'guides/javascript-api',
+            link: '/developer-guide/javascript-api',
           },
           {
-            text: 'Loader development',
-            link: 'guides/loader-development',
+            text: 'Loader Development',
+            link: '/developer-guide/loader-development',
           },
         ],
       },

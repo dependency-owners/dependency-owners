@@ -54,37 +54,13 @@ dependency-owners \
   package.json
 ```
 
-**Combine multiple options:**
-
-```bash
-dependency-owners \
-  --loader @dependency-owners/package-json-loader \
-  --config ./owners.json \
-  --fail-on-unowned \
-  --dependency typescript \
-  package.json
-```
-
 ## Output
 
-A JSON object mapping each dependency to an array of owners.
-
-A simple example (for the dependencies in this repository):
+A JSON object maps each inspected dependency to its owners. An unowned dependency has an empty array:
 
 ```json
 {
-  "@stricli/core": ["kirkeaton"],
-  "@dependency-owners/package-json-loader": ["kirkeaton"],
-  "@kirkeaton/prettier-config": ["kirkeaton"],
-  "@kirkeaton/semantic-release-config": ["kirkeaton"],
-  "@kirkeaton/tsconfig": ["kirkeaton"],
-  "@types/node": ["kirkeaton"],
-  "fs-fixture": ["kirkeaton"],
-  "prettier": ["kirkeaton"],
-  "semantic-release": ["kirkeaton"],
-  "typescript": ["kirkeaton"],
-  "vitepress": ["kirkeaton"]
+  "react": ["frontend-team"],
+  "unowned-package": []
 }
 ```
-
-If a dependency has no owner, its array will be empty. Use `--fail-on-unowned` to make this an error condition.
